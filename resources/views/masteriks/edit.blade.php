@@ -61,31 +61,77 @@
             <div class="mb-3 row">
                 <label for="nim" class="col-sm-2 col-form-label">Kode</label>
                     <div class="col-sm-3">
-                        <input type="text" class="form-control" id="nim" name="kode" value="{{ $data['kode'] }}" readonly="readonly">
+                        <input type="text" class="form-control @error('kode') is-invalid @enderror" id="kode" name="kode" value="{{ $data['kode'] }}">
                     </div>
+                    @error('kode')
+                        <div class="invalid-feedback d-block" style="margin-left: 210px;">
+                            <strong>{{ $message }}</strong>
+                        </div>
+                    @enderror
             </div>
             <div class="mb-3 row">
                 <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control" id="nama" name="nama" value="{{ $data['nama'] }}">
+                        <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" value="{{ $data['nama'] }}" >
                     </div>
+                    @error('nama')
+                        <div class="invalid-feedback d-block" style="margin-left: 210px;">
+                            <strong>{{ $message }}</strong>
+                        </div>
+                    @enderror
             </div>
             <div class="mb-3 row">
                 <label for="nama" class="col-sm-2 col-form-label">Penjamin ID</label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control" id="penjamin_id" name="penjamin_id" value="{{ $data['penjamin_id'] }}" readonly="readonly">
+                    <select class="form-control @error('penjamin_id') is-invalid @enderror" name="penjamin_id" id="penjamin_id" value="{{ $data->penjaminSel->nama }}">
+                            <option value="" selected disabled>- Pilih Penjamin -</option>
+                            @foreach($penjamin as $p)
+                            <option value="{{$p->id}}" {{ $data->penjamin_id == $p->id ? 'selected' : '' }}>{{$p->nama}}</option>
+                            @endforeach
+                        </select>
                     </div>
+                    @error('penjamin_id')
+                        <div class="invalid-feedback d-block" style="margin-left: 210px;">
+                            <strong>{{ $message }}</strong>
+                        </div>
+                    @enderror
             </div>
             <div class="mb-3 row">
-                <label for="nama" class="col-sm-2 col-form-label">Tipe ID</label>
-                    <div class="col-sm-2">
-                        <input type="text" class="form-control" id="tipe_id" name="tipe_id" value="{{ $data['tipe_id'] }}">
+                <label for="tipe_id" class="col-sm-2 col-form-label">Tipe ID</label>
+                    <div class="col-sm-3">
+                    <select class="form-control @error('tipe_id') is-invalid @enderror" name="tipe_id" id="tipe_id" >
+                            <option value="" selected disabled>- Pilih Tipe -</option>
+                            @foreach($tipeiks as $t)
+                            <option value="{{  $t->id }}" {{ $data->tipe_id == $t->id ? 'selected' : '' }}>{{ $t->nama }}</option>
+                            @endforeach
+                        </select>
+                        @error('tipe_id')
+                        <div class="invalid-feedback d-block">
+                            <strong>{{ $message }}</strong>
+                        </div>
+                        @enderror
                     </div>
             </div>
-            <div class="mb-3 row">
+            <div class="mb-4 row">
                 <label for="nama" class="col-sm-2 col-form-label">Status Aktif</label>
-                    <div class="col-sm-2">
-                        <input type="text" class="form-control" id="status_aktif" name="status_aktif" value="{{ $data['status_aktif'] }}">
+                    <div class="col-sm-4">
+                    <div class="form-check">
+                        <input class="form-check-input @error('status_aktif') is-invalid @enderror" type="radio" name="status_aktif" id="flexRadioDefault1" value="0" {{ ($data->status_aktif=="0")? 'checked' : '' }}>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            0 ( Tidak Aktif )
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input @error('status_aktif') is-invalid @enderror" type="radio" name="status_aktif" id="flexRadioDefault2" value="1" {{ ($data->status_aktif=="1")? 'checked' : '' }}>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            1 ( Aktif )
+                        </label>
+                    </div>
+                        @error('status_aktif')
+                        <div class="invalid-feedback d-block">
+                            <strong>{{ $message }}</strong>
+                        </div>
+                        @enderror
                     </div>
             </div>
             <div>
@@ -106,7 +152,7 @@
     function confirmUpdate() {
         CustomSwal.fire({
             icon:'question',
-            text: 'Data Sudah Benar ?',
+            text: 'Yakin Ingin Mengupdate Data ?',
             showCancelButton: true,
             confirmButtonText: 'Simpan',
             cancelButtonText: 'Batal'

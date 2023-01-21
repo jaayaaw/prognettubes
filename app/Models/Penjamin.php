@@ -9,4 +9,5 @@ class Penjamin extends Model
 {
     use HasFactory;
     protected $table="m_penjamin";
+    protected $fillable=['kode','nama','prefix_antrean'];
 }

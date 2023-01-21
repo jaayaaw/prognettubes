@@ -5,11 +5,12 @@
 
 @endsection
 @section('content')
-@if(session('massage'))
-    <div x-data="{show: true}" x-init="setTimeout(() => show = false, 5000)" x-show="show">
-        <div class="alert alert-success">{{ session('massage') }}</div>
-    </div>
-@endif
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page" style="color: blue;">Master IKS</li>
+  </ol>
+</nav>
+<br>
 <div class="nk-fmg-body-head d-none d-lg-flex">
     <div class="nk-fmg-search">
         <h4 class="card-title text-primary"><i class='{{$icon}}' data-toggle='tooltip' data-placement='bottom' title='Data {{$subtitle}}'></i>  {{strtoupper("".$subtitle)}}</h4>
@@ -53,8 +54,8 @@
                             <th width="1%">No.</th>
                             <th width="10%">Kode</th>
                             <th width="10%">Nama</th>
-                            <th width="10%">Penjamin ID</th>
-                            <th width="10%">Tipe ID</th>
+                            <th width="10%">Penjamin</th>
+                            <th width="10%">Tipe IKS</th>
                             <th width="10%">Status Aktif</th>
                             <th width="10%">Aksi</th>
                         </thead>
@@ -101,14 +102,14 @@ $(document).ready(function() {
                 class: 'text-left'
             },
             {
-                data: 'penjamin_id',
+                data: 'penjamin_sel.nama',
                 name: 'penjamin_id',
                 orderable: true,
                 searchable: true,
                 class: 'text-left'
             },
             {
-                data: 'tipe_id',
+                data: 'tipe_sel.nama',
                 name: 'tipe_id',
                 orderable: true,
                 searchable: true,
@@ -119,7 +120,15 @@ $(document).ready(function() {
                 name: 'status_aktif',
                 orderable: true,
                 searchable: true,
-                class: 'text-left'
+                class: 'text-left',
+                render:function(data, type, row)
+                {
+                    if (data == 0) {
+                        return 'Tidak Aktif'
+                    } else {
+                        return 'Aktif'
+                    }
+                }
             },
             {
                 data: 'aksi',

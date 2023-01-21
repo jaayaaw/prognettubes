@@ -31,6 +31,7 @@
                         <div class="nk-content-inner">
                             <div class="nk-content-body">
                                 @include('komponen/pesan')
+                                <br>
                                 @yield('content')
                             </div>
                         </div>

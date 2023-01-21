@@ -25,6 +25,13 @@
                 </a>
             </div>
         </div><!-- .nk-header-news -->
+        <!-- <div>
+            <ul>
+                <li>
+                    <a href="/login" type="button" class="btn btn-primary">Login</a>
+                </li>
+            </ul>
+        </div> -->
         <div class="nk-header-tools">
             <ul class="nk-quick-nav">
                 <li class="dropdown language-dropdown d-none d-sm-block mr-n1">
@@ -70,6 +77,7 @@
                                 </div>
                             </div>
                         </a>
+                        @auth
                         <div class="dropdown-menu dropdown-menu-md dropdown-menu-right dropdown-menu-s1 is-light">
                             <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
                                 <div class="user-card">
@@ -77,8 +85,8 @@
                                         <span>substr(auth()->user()->name, 0, 1)</span>
                                     </div>
                                     <div class="user-info">
-                                        <span class="lead-text">auth()->user()->name</span>
-                                        <span class="sub-text">auth()->user()->email</span>
+                                        <span class="lead-text">{{ auth()->user()->name }}</span>
+                                        <span class="sub-text">{{ auth()->user()->email }}</span>
                                     </div>
                                     <div class="user-action">
                                         <a class="btn btn-icon mr-n2" href="html/user-profile-setting.html"><em class="icon ni ni-setting"></em></a>
@@ -108,16 +116,17 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="route('logout')"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            <em class="icon ni ni-signout"></em><span>Sign out</span>
+                                        <a href="/login"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            <em class="icon ni ni-signout"></em><span>Loguot</span>
                                         </a>
-                                        <form id="logout-form" action="route('logout')" method="POST" class="d-none">
+                                        <form id="logout-form" action="/logout" method="POST" class="d-none">
                                             @csrf
                                         </form>
                                     </li>
                                 </ul>
                             </div>
                         </div>
+                        @endauth
                     </li><!-- .dropdown -->
                 
             </ul><!-- .nk-quick-nav -->

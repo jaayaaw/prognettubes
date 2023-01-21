@@ -19,12 +19,12 @@
                                 <li class="nk-menu-heading">
                                     <h6 class="overline-title text-primary-alt">Master Data</h6>
                                 </li><!-- .nk-menu-item -->
-                                <li class="nk-menu-item">
+                                <!-- <li class="nk-menu-item">
                                     <a href="{{URL('/crud')}}" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-dashlite"></em></span>
                                         <span class="nk-menu-text">CRUD Example</span>
                                     </a>
-                                </li><!-- .nk-menu-item -->
+                                </li>.nk-menu-item -->
                                 <li class="nk-menu-item">
                                     <a href="{{URL('/masteriks')}}" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-layers-fill"></em></span>
@@ -32,17 +32,29 @@
                                     </a>
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item">
-                                    <a href="{{URL('/crud3')}}" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-linux-server"></em></span>
-                                        <span class="nk-menu-text">Example 3</span>
+                                    <a href="{{URL('/ikstipe')}}" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-files"></em></span>
+                                        <span class="nk-menu-text">Master IKS Tipe</span>
                                     </a>
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item">
-                                    <a href="{{URL('/crud4')}}" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-coins"></em></span>
-                                        <span class="nk-menu-text">Example 4</span>
+                                    <a href="{{URL('/penjamin')}}" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-linux-server"></em></span>
+                                        <span class="nk-menu-text">Master Penjamin</span>
                                     </a>
                                 </li><!-- .nk-menu-item -->
+                                <li class="nk-menu-item">
+                                    <a href="{{URL('/gkomponen')}}" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-coins"></em></span>
+                                        <span class="nk-menu-text">Master IKS Group Komponen</span>
+                                    </a>
+                                    </li><!-- .nk-menu-item -->
+                                <!-- <li class="nk-menu-item">
+                                    <a href="{{URL('/masteriksgkdetail')}}" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-list"></em></span>
+                                        <span class="nk-menu-text">Master IKS Group Komponen Detail</span>
+                                    </a>
+                                </li>.nk-menu-item -->
                                 <li class="nk-menu-heading">
                                     <h6 class="overline-title text-primary-alt">Transactions</h6>
                                 </li><!-- .nk-menu-item -->
